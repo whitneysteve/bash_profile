@@ -1,4 +1,14 @@
+# Misc
+function check() {
+  if [ $? -ne 0 ]
+  then
+    echo "Command failed"
+    exit
+  fi
+}
+
 # Git
+alias ga="git add"
 alias gb="git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'"
 alias gbs="git branch"
 alias gc="git checkout"
@@ -7,6 +17,17 @@ alias gm="git checkout master"
 alias gull="git pull"
 alias gush="git push origin"
 alias gsu="git push --set-upstream origin $(gb)"
+
+function gsubmit() {
+  branch=$(gb)
+  check
+  git checkout master
+  check
+  git merge $branch
+  check
+  gush
+  check
+}
 
 # Repos
 export REPOSITORY="$HOME/Repository"
