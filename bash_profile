@@ -12,10 +12,12 @@ alias ga="git add"
 alias gb="git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'"
 alias gbs="git branch"
 alias gc="git checkout"
+alias gco="git commit"
 alias gdiff="git diff --name-status master"
 alias gm="git checkout master"
 alias gull="git pull"
 alias gush="git push origin"
+alias gs="git status"
 alias gsu="git push --set-upstream origin $(gb)"
 
 function gsubmit() {
