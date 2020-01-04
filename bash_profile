@@ -42,9 +42,11 @@ function gf() {
 function gsubmit() {
   branch=$(gb)
   check || return
-  ga .
-  gco
-  check || return
+  if [[ $(git diff) != '' ]]; then
+    ga .
+    gco
+    check || return
+  fi
   git checkout master
   check || return
   git merge $branch
