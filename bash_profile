@@ -1,3 +1,4 @@
+
 # Misc
 function check() {
   if [ $? -ne 0 ]
