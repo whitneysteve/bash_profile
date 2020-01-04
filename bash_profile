@@ -21,7 +21,7 @@ alias gush="git push origin"
 alias gs="git status"
 
 function gd() {
-  git branch -d $1
+  git branch -D $1
   git push origin --delete $1
 }
 
