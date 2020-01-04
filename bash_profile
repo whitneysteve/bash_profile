@@ -14,11 +14,17 @@ alias gbs="git branch"
 alias gc="git checkout"
 alias gco="git commit"
 alias gdiff="git diff --name-status master"
+alias gf="git checkout -b"
 alias gm="git checkout master"
 alias gull="git pull"
 alias gush="git push origin"
 alias gs="git status"
 alias gsu="git push --set-upstream origin $(gb)"
+
+function gd() {
+  git branch -d $1
+  git push origin --delete $1
+}
 
 function gsubmit() {
   branch=$(gb)
@@ -29,6 +35,7 @@ function gsubmit() {
   check
   gush
   check
+  gd $branch
 }
 
 # Repos
