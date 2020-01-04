@@ -33,6 +33,9 @@ function gf() {
 function gsubmit() {
   branch=$(gb)
   check || return
+  ga .
+  gco
+  check || return
   git checkout master
   check || return
   git merge $branch
