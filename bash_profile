@@ -4,7 +4,7 @@ function check() {
   if [ $? -ne 0 ]
   then
     echo "Command failed"
-    exit
+    return 1
   fi
 }
 
@@ -32,13 +32,13 @@ function gf() {
 
 function gsubmit() {
   branch=$(gb)
-  check
+  check || return
   git checkout master
-  check
+  check || return
   git merge $branch
-  check
+  check || return
   gush
-  check
+  check || return
   gd $branch
 }
 
