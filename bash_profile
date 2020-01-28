@@ -42,7 +42,8 @@ function gf() {
 function gsubmit() {
   branch=$(gb)
   check || return
-  if [[ $(git diff) != '' ]]; then
+  if [[ -n $(git status -s) ]]
+  then
     ga .
     gco
     check || return
