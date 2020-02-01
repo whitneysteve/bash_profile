@@ -7,6 +7,9 @@ function check() {
   fi
 }
 
+#Formatting
+alias sut="cat << EOM |tr -d "[:blank:]" |  sort | uniq"
+
 # Git
 alias ga="git add"
 alias gb="git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'"
